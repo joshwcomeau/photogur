@@ -1,6 +1,8 @@
-<h1>Here's some pictures:</h1>
+<h1>We have <%= @pictures.length %> pictures to show you:</h1>
+<%= link_to "Add a New Picture", "/pictures/new" %>
+<hr>
 <% @pictures.each do |pic| %>
   <p><%= pic[:title] %>, <%= pic[:artist] %></p>
-  <img src="<%= pic[:url] %>">
+  <%= link_to image_tag(pic.url), "/pictures/#{pic.id}" %>
 
 <% end %>
